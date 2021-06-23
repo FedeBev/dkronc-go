@@ -164,10 +164,12 @@ func (o *CreateOrUpdateJobParams) WriteToRequest(r runtime.ClientRequest, reg st
 
 	// query param runoncreate
 	qrRunoncreate := o.Runoncreate
-	qRunoncreate := swag.FormatBool(qrRunoncreate)
+	if qrRunoncreate {
+		qRunoncreate := swag.FormatBool(qrRunoncreate)
 
-	if err := r.SetQueryParam("runoncreate", qRunoncreate); err != nil {
-		return err
+		if err := r.SetQueryParam("runoncreate", qRunoncreate); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
