@@ -14,8 +14,8 @@ import (
     "encoding/json"
     "fmt"
 
-    "github.com/FedeBev/dkronc-go/pkg/client"
-    "github.com/FedeBev/dkronc-go/pkg/client/jobs"
+    "github.com/FedeBev/dkronc-go/v3/client"
+    "github.com/FedeBev/dkronc-go/v3/client/jobs"
 )
 
 func main() {
