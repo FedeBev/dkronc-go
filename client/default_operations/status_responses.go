@@ -12,7 +12,7 @@ import (
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 
-	"github.com/FedeBev/dkronc-go/models"
+	"github.com/FedeBev/dkronc-go/v3/models"
 )
 
 // StatusReader is a Reader for the Status structure.
