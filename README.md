@@ -2,7 +2,7 @@
 
 **dkron-go** is a very minimal and simple client for [dkron](https://github.com/distribworks/dkron), generated from dkron official swagger file
 
-**NOTE**: At the moment the swagger file contains a little path to [expose `next` job field](https://github.com/distribworks/dkron/issues/990)
+**NOTE**: At the moment the swagger file contains a little patch to [expose `next` job field](https://github.com/distribworks/dkron/issues/990)
 
 ## Usage example
 
