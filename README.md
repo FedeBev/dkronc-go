@@ -1,6 +1,6 @@
 # dkron-go: a simple go client for dkron
 
-**dkron-go** is a very minimal and simple client for [dkron](https://github.com/distribworks/dkron), generated from dkron official swagger file
+**dkron-go** is a very minimal and simple client for [dkron v3](https://github.com/distribworks/dkron), generated from dkron official swagger file
 
 **NOTE**: At the moment the swagger file contains a little patch to [expose `next` job field](https://github.com/distribworks/dkron/issues/990)
 

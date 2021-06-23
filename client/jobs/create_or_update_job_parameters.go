@@ -16,7 +16,7 @@ import (
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 
-	"github.com/FedeBev/dkronc-go/pkg/models"
+	"github.com/FedeBev/dkronc-go/models"
 )
 
 // NewCreateOrUpdateJobParams creates a new CreateOrUpdateJobParams object,

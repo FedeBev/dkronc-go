@@ -12,19 +12,19 @@ import (
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 
-	"github.com/FedeBev/dkronc-go/pkg/models"
+	"github.com/FedeBev/dkronc-go/models"
 )
 
-// ToggleJobReader is a Reader for the ToggleJob structure.
-type ToggleJobReader struct {
+// RunJobReader is a Reader for the RunJob structure.
+type RunJobReader struct {
 	formats strfmt.Registry
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *ToggleJobReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *RunJobReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
-	case 200:
-		result := NewToggleJobOK()
+	case 202:
+		result := NewRunJobAccepted()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -34,27 +34,27 @@ func (o *ToggleJobReader) ReadResponse(response runtime.ClientResponse, consumer
 	}
 }
 
-// NewToggleJobOK creates a ToggleJobOK with default headers values
-func NewToggleJobOK() *ToggleJobOK {
-	return &ToggleJobOK{}
+// NewRunJobAccepted creates a RunJobAccepted with default headers values
+func NewRunJobAccepted() *RunJobAccepted {
+	return &RunJobAccepted{}
 }
 
-/* ToggleJobOK describes a response with status code 200, with default header values.
+/* RunJobAccepted describes a response with status code 202, with default header values.
 
 Successful response
 */
-type ToggleJobOK struct {
+type RunJobAccepted struct {
 	Payload *models.Job
 }
 
-func (o *ToggleJobOK) Error() string {
-	return fmt.Sprintf("[POST /jobs/{job_name}/toggle][%d] toggleJobOK  %+v", 200, o.Payload)
+func (o *RunJobAccepted) Error() string {
+	return fmt.Sprintf("[POST /jobs/{job_name}][%d] runJobAccepted  %+v", 202, o.Payload)
 }
-func (o *ToggleJobOK) GetPayload() *models.Job {
+func (o *RunJobAccepted) GetPayload() *models.Job {
 	return o.Payload
 }
 
-func (o *ToggleJobOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+func (o *RunJobAccepted) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.Job)
 

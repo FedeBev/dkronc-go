@@ -12,19 +12,19 @@ import (
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 
-	"github.com/FedeBev/dkronc-go/pkg/models"
+	"github.com/FedeBev/dkronc-go/models"
 )
 
-// DeleteJobReader is a Reader for the DeleteJob structure.
-type DeleteJobReader struct {
+// ShowJobByNameReader is a Reader for the ShowJobByName structure.
+type ShowJobByNameReader struct {
 	formats strfmt.Registry
 }
 
 // ReadResponse reads a server response into the received o.
-func (o *DeleteJobReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
+func (o *ShowJobByNameReader) ReadResponse(response runtime.ClientResponse, consumer runtime.Consumer) (interface{}, error) {
 	switch response.Code() {
 	case 200:
-		result := NewDeleteJobOK()
+		result := NewShowJobByNameOK()
 		if err := result.readResponse(response, consumer, o.formats); err != nil {
 			return nil, err
 		}
@@ -34,27 +34,27 @@ func (o *DeleteJobReader) ReadResponse(response runtime.ClientResponse, consumer
 	}
 }
 
-// NewDeleteJobOK creates a DeleteJobOK with default headers values
-func NewDeleteJobOK() *DeleteJobOK {
-	return &DeleteJobOK{}
+// NewShowJobByNameOK creates a ShowJobByNameOK with default headers values
+func NewShowJobByNameOK() *ShowJobByNameOK {
+	return &ShowJobByNameOK{}
 }
 
-/* DeleteJobOK describes a response with status code 200, with default header values.
+/* ShowJobByNameOK describes a response with status code 200, with default header values.
 
 Successful response
 */
-type DeleteJobOK struct {
+type ShowJobByNameOK struct {
 	Payload *models.Job
 }
 
-func (o *DeleteJobOK) Error() string {
-	return fmt.Sprintf("[DELETE /jobs/{job_name}][%d] deleteJobOK  %+v", 200, o.Payload)
+func (o *ShowJobByNameOK) Error() string {
+	return fmt.Sprintf("[GET /jobs/{job_name}][%d] showJobByNameOK  %+v", 200, o.Payload)
 }
-func (o *DeleteJobOK) GetPayload() *models.Job {
+func (o *ShowJobByNameOK) GetPayload() *models.Job {
 	return o.Payload
 }
 
-func (o *DeleteJobOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
+func (o *ShowJobByNameOK) readResponse(response runtime.ClientResponse, consumer runtime.Consumer, formats strfmt.Registry) error {
 
 	o.Payload = new(models.Job)
 

@@ -10,10 +10,10 @@ import (
 	httptransport "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
 
-	"github.com/FedeBev/dkronc-go/pkg/client/default_operations"
-	"github.com/FedeBev/dkronc-go/pkg/client/executions"
-	"github.com/FedeBev/dkronc-go/pkg/client/jobs"
-	"github.com/FedeBev/dkronc-go/pkg/client/members"
+	"github.com/FedeBev/dkronc-go/client/default_operations"
+	"github.com/FedeBev/dkronc-go/client/executions"
+	"github.com/FedeBev/dkronc-go/client/jobs"
+	"github.com/FedeBev/dkronc-go/client/members"
 )
 
 // Default dkron r e s t API HTTP client.
