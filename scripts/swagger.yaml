@@ -37,10 +37,9 @@ paths:
       parameters:
         - in: query
           name: metadata
-          type: array
-          collectionFormat: multi
-          items:
-            type: string
+          type: object
+          deepObject: true
+          explode: true
           description: Filter jobs by metadata
         - in: query
           name: _sort
