@@ -193,12 +193,12 @@ type Status struct {
 
 // Node basic details
 type Status_Agent struct {
-	AdditionalProperties map[string]map[string]interface{} `json:"-"`
+	AdditionalProperties map[string]string `json:"-"`
 }
 
 // Serf status
 type Status_Serf struct {
-	AdditionalProperties map[string]map[string]interface{} `json:"-"`
+	AdditionalProperties map[string]string `json:"-"`
 }
 
 // Tags asociated with this node
@@ -518,7 +518,7 @@ func (a Processors) MarshalJSON() ([]byte, error) {
 
 // Getter for additional properties for Status_Agent. Returns the specified
 // element and whether it was found
-func (a Status_Agent) Get(fieldName string) (value map[string]interface{}, found bool) {
+func (a Status_Agent) Get(fieldName string) (value string, found bool) {
 	if a.AdditionalProperties != nil {
 		value, found = a.AdditionalProperties[fieldName]
 	}
@@ -526,9 +526,9 @@ func (a Status_Agent) Get(fieldName string) (value map[string]interface{}, found
 }
 
 // Setter for additional properties for Status_Agent
-func (a *Status_Agent) Set(fieldName string, value map[string]interface{}) {
+func (a *Status_Agent) Set(fieldName string, value string) {
 	if a.AdditionalProperties == nil {
-		a.AdditionalProperties = make(map[string]map[string]interface{})
+		a.AdditionalProperties = make(map[string]string)
 	}
 	a.AdditionalProperties[fieldName] = value
 }
@@ -542,9 +542,9 @@ func (a *Status_Agent) UnmarshalJSON(b []byte) error {
 	}
 
 	if len(object) != 0 {
-		a.AdditionalProperties = make(map[string]map[string]interface{})
+		a.AdditionalProperties = make(map[string]string)
 		for fieldName, fieldBuf := range object {
-			var fieldVal map[string]interface{}
+			var fieldVal string
 			err := json.Unmarshal(fieldBuf, &fieldVal)
 			if err != nil {
 				return errors.Wrap(err, fmt.Sprintf("error unmarshaling field %s", fieldName))
@@ -571,7 +571,7 @@ func (a Status_Agent) MarshalJSON() ([]byte, error) {
 
 // Getter for additional properties for Status_Serf. Returns the specified
 // element and whether it was found
-func (a Status_Serf) Get(fieldName string) (value map[string]interface{}, found bool) {
+func (a Status_Serf) Get(fieldName string) (value string, found bool) {
 	if a.AdditionalProperties != nil {
 		value, found = a.AdditionalProperties[fieldName]
 	}
@@ -579,9 +579,9 @@ func (a Status_Serf) Get(fieldName string) (value map[string]interface{}, found 
 }
 
 // Setter for additional properties for Status_Serf
-func (a *Status_Serf) Set(fieldName string, value map[string]interface{}) {
+func (a *Status_Serf) Set(fieldName string, value string) {
 	if a.AdditionalProperties == nil {
-		a.AdditionalProperties = make(map[string]map[string]interface{})
+		a.AdditionalProperties = make(map[string]string)
 	}
 	a.AdditionalProperties[fieldName] = value
 }
@@ -595,9 +595,9 @@ func (a *Status_Serf) UnmarshalJSON(b []byte) error {
 	}
 
 	if len(object) != 0 {
-		a.AdditionalProperties = make(map[string]map[string]interface{})
+		a.AdditionalProperties = make(map[string]string)
 		for fieldName, fieldBuf := range object {
-			var fieldVal map[string]interface{}
+			var fieldVal string
 			err := json.Unmarshal(fieldBuf, &fieldVal)
 			if err != nil {
 				return errors.Wrap(err, fmt.Sprintf("error unmarshaling field %s", fieldName))
@@ -1077,7 +1077,7 @@ func NewGetJobsRequest(server string, params *GetJobsParams) (*http.Request, err
 
 	if params.Metadata != nil {
 
-		if queryFrag, err := runtime.StyleParamWithLocation("form", true, "metadata", runtime.ParamLocationQuery, *params.Metadata); err != nil {
+		if queryFrag, err := runtime.StyleParamWithLocation("deepObject", true, "metadata", runtime.ParamLocationQuery, *params.Metadata); err != nil {
 			return nil, err
 		} else if parsed, err := url.ParseQuery(queryFrag); err != nil {
 			return nil, err

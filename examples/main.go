@@ -20,18 +20,18 @@ func main() {
 	st, err := c.StatusWithResponse(ctx)
 	if err != nil {
 		fmt.Println(err)
+	} else {
+		data, _ := json.MarshalIndent(st.JSON200, ">", "  ")
+		fmt.Println(string(data))
 	}
-
-	data, _ := json.MarshalIndent(st.JSON200, ">", "  ")
-	fmt.Println(string(data))
 
 	job, err := c.ShowJobByNameWithResponse(ctx, "test")
 	if err != nil {
 		fmt.Println(err)
+	} else {
+		data, _ := json.MarshalIndent(job.JSON200, ">", "  ")
+		fmt.Println(string(data))
 	}
-
-	data, _ = json.MarshalIndent(job.JSON200, ">", "  ")
-	fmt.Println(string(data))
 
 	meta := &map[string]interface{}{
 		"key": "value1",
@@ -43,8 +43,9 @@ func main() {
 	r, err := c.GetJobsWithResponse(ctx, getJobsParams)
 	if err != nil {
 		fmt.Println(err)
+	} else {
+		data, _ := json.MarshalIndent(r.JSON200, ">", "  ")
+		fmt.Println(string(data))
 	}
-	data, _ = json.MarshalIndent(r.JSON200, ">", "  ")
-	fmt.Println(string(data))
 
 }

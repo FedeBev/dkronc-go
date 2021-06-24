@@ -34,7 +34,7 @@ paths:
       parameters:
         - in: query
           name: metadata
-          deepObject: true
+          style: deepObject
           explode: true
           description: Filter jobs by metadata
           schema:
@@ -326,12 +326,12 @@ components:
           description: Node basic details
           readOnly: true
           additionalProperties:
-            type: object
+            type: string
         serf:
           description: Serf status
           readOnly: true
           additionalProperties:
-            type: object
+            type: string
         tags:
           description: Tags asociated with this node
           readOnly: true
